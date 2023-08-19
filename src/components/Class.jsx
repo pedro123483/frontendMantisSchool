@@ -36,8 +36,6 @@ const Class = () => {
     const [teacherToRegister, setTeacherToRegister] = useState("");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
-    const [id, setId] = useState("");
-    const [open, setOpen] = useState(false);
 
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
         [`&.${tableCellClasses.head}`]: {

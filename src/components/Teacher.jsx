@@ -24,10 +24,6 @@ const Teacher = () => {
     const [lastName, setLastName] = useState("");
     const [background, setBackground] = useState("");
     const [yearsOfExperience, setYearsOfExperience] = useState("");
-    const [firstNameModal, setFirstNameModal] = useState("");
-    const [lastNameModal, setLastNameModal] = useState("");
-    const [backgroundModal, setBackgroundModal] = useState("");
-    const [yearsOfExperienceModal, setYearsOfExperienceModal] = useState("");
     const [id, setId] = useState("");
     const [open, setOpen] = useState(false);
 
@@ -97,10 +93,10 @@ const Teacher = () => {
         axios.get(`https://w6vtnk-5000.csb.app/teacher/${id}`).then((response) => {
             console.log(response.data);
             setId(response.data.teacher._id);
-            setFirstNameModal(response.data.teacher.firstName);
-            setLastNameModal(response.data.teacher.lastName);
-            setBackgroundModal(response.data.teacher.background);
-            setYearsOfExperienceModal(response.data.teacher.yearsOfExperience);
+            setFirstName(response.data.teacher.firstName);
+            setLastName(response.data.teacher.lastName);
+            setBackground(response.data.teacher.background);
+            setYearsOfExperience(response.data.teacher.yearsOfExperience);
         }).catch((error) => {
             console.log(error);
         });
@@ -150,10 +146,10 @@ const Teacher = () => {
                     Tap the information you want to update about the teacher
                 </DialogContentText>
                     <Stack mt={3} spacing={5} direction="column">
-                        <TextField sx={{ backgroundColor: "white" }} id="btnFirstName" label="First Name" variant="filled" onChange={(e) => setFirstName(e.target.value)} value={firstNameModal} />
-                        <TextField sx={{ backgroundColor: "white" }} id="btnLastName" label="Last Name" variant="filled" onChange={(e) => setLastName(e.target.value)} value={lastNameModal} />
-                        <TextField id="btnBackground" label="Background" variant="filled" sx={{ backgroundColor: "white" }} onChange={(e) => setBackground(e.target.value)} value={backgroundModal} />
-                        <TextField sx={{ backgroundColor: "white" }} id="btnYearsOfExperience" label="Years of experience" variant="filled" type="number" onChange={(e) => setYearsOfExperience(e.target.value)} value={yearsOfExperienceModal}/>
+                        <TextField sx={{ backgroundColor: "white" }} id="btnFirstName" label="First Name" variant="filled" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
+                        <TextField sx={{ backgroundColor: "white" }} id="btnLastName" label="Last Name" variant="filled" onChange={(e) => setLastName(e.target.value)} value={lastName} />
+                        <TextField id="btnBackground" label="Background" variant="filled" sx={{ backgroundColor: "white" }} onChange={(e) => setBackground(e.target.value)} value={background} />
+                        <TextField sx={{ backgroundColor: "white" }} id="btnYearsOfExperience" label="Years of experience" variant="filled" type="number" onChange={(e) => setYearsOfExperience(e.target.value)} value={yearsOfExperience}/>
                     </Stack>
                 </DialogContent>
                 <DialogActions>

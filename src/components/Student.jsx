@@ -25,11 +25,6 @@ const Student = () => {
     const [age, setAge] = useState("");
     const [gender, setGender] = useState("");
     const [course, setCourse] = useState("");
-    const [firstNameModal, setFirstNameModal] = useState("");
-    const [lastNameModal, setLastNameModal] = useState("");
-    const [ageModal, setAgeModal] = useState("");
-    const [genderModal, setGenderModal] = useState("");
-    const [courseModal, setCourseModal] = useState("");
     const [id, setId] = useState("");
     const [open, setOpen] = useState(false);
 
@@ -102,11 +97,11 @@ const Student = () => {
         axios.get(`https://w6vtnk-5000.csb.app/student/${id}`).then((response) => {
             console.log(response.data);
             setId(response.data.student._id);
-            setFirstNameModal(response.data.student.firstName);
-            setLastNameModal(response.data.student.lastName);
-            setAgeModal(response.data.student.age);
-            setGenderModal(response.data.student.gender);
-            setCourseModal(response.data.student.course);
+            setFirstName(response.data.student.firstName);
+            setLastName(response.data.student.lastName);
+            setAge(response.data.student.age);
+            setGender(response.data.student.gender);
+            setCourse(response.data.student.course);
         }).catch((error) => {
             console.log(error);
         });
@@ -159,11 +154,11 @@ const Student = () => {
                     Tap the information you want to update about the student
                 </DialogContentText>
                     <Stack mt={3} spacing={5} direction="column">
-                    <TextField sx={{ backgroundColor: "white" }} id="btnFirstName" label="First Name" variant="filled" onChange={(e) => setFirstName(e.target.value)} value={firstNameModal} />
-                        <TextField sx={{ backgroundColor: "white" }} id="btnLastName" label="Last Name" variant="filled" onChange={(e) => setLastName(e.target.value)} value={lastNameModal} />
-                        <TextField id="btnAge" label="Age" type="number" variant="filled" sx={{ backgroundColor: "white" }} onChange={(e) => setAge(e.target.value)} value={ageModal} />
-                        <TextField sx={{ backgroundColor: "white" }} id="btnGender" label="Gender" variant="filled" onChange={(e) => setGender(e.target.value)} value={genderModal}/>
-                        <TextField sx={{ backgroundColor: "white" }} id="btnCourse" label="Course" variant="filled" onChange={(e) => setCourse(e.target.value)} value={courseModal}/>
+                    <TextField sx={{ backgroundColor: "white" }} id="btnFirstName" label="First Name" variant="filled" onChange={(e) => setFirstName(e.target.value)} value={firstName} />
+                        <TextField sx={{ backgroundColor: "white" }} id="btnLastName" label="Last Name" variant="filled" onChange={(e) => setLastName(e.target.value)} value={lastName} />
+                        <TextField id="btnAge" label="Age" type="number" variant="filled" sx={{ backgroundColor: "white" }} onChange={(e) => setAge(e.target.value)} value={age} />
+                        <TextField sx={{ backgroundColor: "white" }} id="btnGender" label="Gender" variant="filled" onChange={(e) => setGender(e.target.value)} value={gender}/>
+                        <TextField sx={{ backgroundColor: "white" }} id="btnCourse" label="Course" variant="filled" onChange={(e) => setCourse(e.target.value)} value={course}/>
                     </Stack>
                 </DialogContent>
                 <DialogActions>
